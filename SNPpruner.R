@@ -104,6 +104,7 @@ SNPpruner=function(R2_threshold){
 print(paste("SNPs to remove",length(SNPS_to_prune)))
 print(paste("max clustersize",max(clustersize)))
 print(paste("number of clusters",length(clustersize[-1])))
+ print(paste("number of original loci",nrow(mapfile)))
 }
 
 
