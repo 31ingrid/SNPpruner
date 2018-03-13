@@ -102,7 +102,9 @@ SNPpruner=function(R2_threshold){
  }   
  write.table(mapfile[,1:4],"datapruned.map",quote=FALSE,col.names=F,row.names=F)
 print(paste("SNPs to remove",length(SNPS_to_prune)))
-print(paste("SNPs to remove",length(SNPS_to_retain)))
+print(paste("SNPs to retain",length(SNPS_to_retain)))
+print(paste("max clustersize",max(clustersize)))
+print(paste("number of clusters",length(clustersize)))
 }
 
 
