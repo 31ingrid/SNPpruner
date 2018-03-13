@@ -1,7 +1,7 @@
 #read in the LD and missing data files and the map file.
 #Working directory should contain these file: "data.map","plink.ld","miss_stat.lmiss"
 #set your working directory to the file location
-setwd=("/path/to/data/") 
+setwd("/path/to/data/") 
 
 SNPpruner=function(R2_threshold){
  dataMISS=read.table("miss_stat.lmiss",header=TRUE)
