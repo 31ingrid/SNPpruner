@@ -101,6 +101,8 @@ SNPpruner=function(R2_threshold){
   mapfile$V4[which(mapfile$V5==SNPS_to_prune[i])]=-1
  }   
  write.table(mapfile[,1:4],"datapruned.map",quote=FALSE,col.names=F,row.names=F)
+print(paste("SNPs to remove",length(SNPS_to_prune)))
+print(paste("SNPs to remove",length(SNPS_to_retain)))
 }
 
 
