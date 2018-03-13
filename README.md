@@ -1,11 +1,7 @@
 # SNPpruner
 This R code complements PLINK output to identify groups of linked SNPs and retain a single SNP from each group with the least missing data.
 
-For non-model organisms it may be of interest to know which groups of SNPs are linked. Although it is common to find software that will provide estimate of LD among pairs of SNPs, it may also be important to identify groups of linked SNPs, which is not commonly provided. This may be relevant if you have a situation such as shown below. If you simply remove one SNP from each pair, you might be ignoring the fact that SNPs could be grouped. In the case below, we see that SNPs X, Y, and Z are all in linkage disequilibrium, and then you could discard all but the SNP with the least missing data. Knowing that SNPs X, Y, and Z are all linked is important later on if you find that certain SNPs appear to be under selection, or are particularly interesting for some reason. You can go back to the list of linked SNPs and try aligning them to the reference genome. 
-
-SNP-1	SNP-2	R2
-X	Y	.91
-Y	Z	.88
+For non-model organisms it may be of interest to know which groups of SNPs are linked. Although it is common to find software that will provide estimate of LD among pairs of SNPs, it may also be important to identify groups of linked SNPs, which is not commonly provided. This may be relevant if you have a situation in which SNP X is linked to SNP Y, but SNP Y is also linked to SNP Z. If you simply remove one SNP from each pair, you might be ignoring the fact that SNPs could be grouped. If SNPs X, Y, and Z are all in linkage disequilibrium, you could discard all but the SNP with the least missing data. Knowing that SNPs X, Y, and Z are all linked may be important if you find that certain SNPs appear to be under selection, or are particularly interesting for some reason. You can go back to the list of linked SNPs and try aligning SNPs that were pruned to the reference genome. 
 
 SNPpruner.R is a function written in R that takes the output of plink.ld files and provides groups of linked SNP loci over a specified r2 value. It will then provide a list of SNPs with the least missing data from each group, and a list of SNPs to prune.  These can be used to create a whitelist or blacklist in STACKS. It will also provide an updated .map file with a -1 in the 4th column so that PLINK will ignore those SNPs.
 
