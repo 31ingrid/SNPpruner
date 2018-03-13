@@ -16,7 +16,7 @@ SNPpruner=function(R2_threshold){
  aligns$SNP_A2 <- as.numeric(aligns$SNP_A2)#all numbers are unique - replaced the underscore with a period.
  aligns$SNP_B2 <- gsub('_', '.', aligns$SNP_B)#same for second column of SNPs
  aligns$SNP_B2 <- as.numeric(aligns$SNP_B2)
- V5=gsub('_', '.', mapfile$V2)
+ V5=gsub('_', '.', mapfile1$V2)
  mapfile=cbind(mapfile1,V5)
  
  #Convert SNPs in the missing data file to numbers as well (underscore to decimal)
