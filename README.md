@@ -21,8 +21,9 @@ Read in the SNPpruner function, then run by simply type:
 
 SNPpruner(R2_threshold)
 
-Where R2_threshold is the R2 value above which you want to filter out SNPs.
-The function will save several files to your working directory: 
+Note: R2_threshold is the R2 value {0<R2_threshold<1} above which you want to filter out SNPs.
+
+Output Files: The function will save several files to your working directory: 
 
 LinkedSNPS.txt - this is a list of all clusters of linked SNPs at the specified threshold. You can also read the list in R using this command: 
 
