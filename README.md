@@ -1,13 +1,13 @@
 # SNPpruner
 This R code complements PLINK output to identify groups of linked SNPs and retain a single SNP from each group with the least missing data.
 
-For non-model organisms it may be of interest to know which groups of SNPs are linked. Although it is common to find software that will provide estimate of LD among pairs of SNPs, it may also be important to identify groups of linked SNPs, which is not commonly provided. This may be relevant if you have a situation in which SNP X is linked to SNP Y, but SNP Y is also linked to SNP Z. If you simply remove one SNP from each pair, you might be ignoring the fact that SNPs could be grouped. If SNPs X, Y, and Z are all in linkage disequilibrium, you could discard all but the SNP with the least missing data. Knowing that SNPs X, Y, and Z are all linked may be important if you find that certain SNPs appear to be under selection, or are particularly interesting for some reason. You can go back to the list of linked SNPs and try aligning SNPs that were pruned to the reference genome. 
+Although it is common to find software that will provide estimate of LD among pairs of SNPs, it may also be important to identify groups of linked SNPs, which is not commonly provided. This could occur if SNP X is linked to SNP Y, and SNP Y is also linked to SNP Z. If you simply remove one SNP from each pair, you might be removing SNPs that you do not intend, or leaving ones you should be pruning. If SNPs X, Y, and Z are all in linkage disequilibrium, it would make sense to discard all but the SNP with the least missing data. Knowing that SNPs X, Y, and Z are all linked may be important if you find that certain SNPs appear to be under selection, or are particularly interesting for some reason. You can go back to the list of linked SNPs and try aligning SNPs that were pruned to the reference genome. This functino may be most relevant for non model organisms.
 
-SNPpruner.R is a function written in R that takes the output of plink.ld files and provides groups of linked SNP loci over a specified r2 value. It will then provide a list of SNPs with the least missing data from each group, and a list of SNPs to prune.  These can be used to create a whitelist or blacklist in STACKS. It will also provide an updated .map file with a -1 in the 4th column so that PLINK will ignore those SNPs.
+SNPpruner.R is a function written in R that takes output from PLINK and provides groups of linked SNP loci over a specified r2 value. It provides a list of SNPs with the least missing data from each group, and a list of SNPs to prune.  These can be used to create a blacklist in STACKS. It will also provide an updated .map file with a -1 in the 4th column so that PLINK will ignore those SNPs that are pruned.
 
-I recommend using PLINK to generate list of SNPs in linkage disequilibrium, and to generate the amount of missing data for each SNP, because it is much faster than most other programs available for this purpose.
+For this analysis, use PLINK to generate a list of SNPs in linkage disequilibrium, and to generate the amount of missing data for each SNP. PLINK is recommended for its computing speed and the SNPpruner function uses PLINK formatted output files.
 
-PLINK will analyze all pairs of linked SNPs in your data using this command:
+Once your data is loaded into PLINK and you create a BED file (http://zzz.bwh.harvard.edu/plink/tutorial.shtml), PLINK will analyze all pairs of linked SNPs in your data using this command:
 
 plink --bfile datafilename --r2 #(output is plink.ld)
 
