@@ -41,4 +41,4 @@ Jasonowicz, A.J., Goetz, F.W., Goetz, G.W. and Nichols, K.M., 2016. Love the one
 
 Larson, W.A., Seeb, L.W., Everett, M.V., Waples, R.K., Templin, W.D. and Seeb, J.E., 2014. Genotyping by sequencing resolves shallow population structure to inform conservation of Chinook salmon (Oncorhynchus tshawytscha). Evolutionary Applications, 7(3), pp.355-369.
 
-
+Three example data files are included here (data.map, plink.ld, miss_stat.miss).
