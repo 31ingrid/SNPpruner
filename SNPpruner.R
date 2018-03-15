@@ -83,8 +83,8 @@ SNPpruner=function(R2_threshold){
   remove_list[[i]]=lst2[-which(fmiss==min(fmiss))[1]]
  }
  
- write.table(SNPS_to_retain,"SNPs_to_retain.txt",quote=FALSE,col.names=F,row.names=F)
- write.table(SNPS_to_prune,"SNPs_to_prune.txt",quote=FALSE,col.names=F,row.names=F)
+ write.table(gsub('\\.','_',SNPS_to_retain),"SNPs_to_retain.txt",quote=FALSE,col.names=F,row.names=F)
+ write.table(gsub('\\.','_',SNPS_to_prune),"SNPs_to_prune.txt",quote=FALSE,col.names=F,row.names=F)
  saveRDS(LinkedSNPS,file="LinkedSNPs.RData")
  #capture.output(summary(LinkedSNPS), file = "LinkedSNPS.txt")
  
